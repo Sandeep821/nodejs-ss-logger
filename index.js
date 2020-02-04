@@ -1,5 +1,8 @@
 import bunyan  from "bunyan";
 import splunkBunyan from "splunk-bunyan-logger";
+import uuidv1 from "uuid/v1";
+import moment from "moment";
+
  
 const config = {
       token: '',
@@ -19,12 +22,20 @@ const setConfig = (token, url, port, maxRetries) => {
 
 const splunkStream = splunkBunyan.createStream(config);
 
-function setLogFormatter(event) {
+function setLogFormatter(methodName, appName, environment, buildNumber, brand, country, level, language, message, event) {
     const payload = {
-      appName: '',
-      appVersion: null, // later will add app version in build 
-      appEnv: process.env.ENV,
-      ...event
+        application: appName,
+        date: moment().format('MMMM Do YYYY, h:mm:ss a'),
+        language: language || moment.locale(),
+        method: methodName || '',
+        appId: `${appName}-${uuidv1()}`,
+        environment: environment || '',
+        build: buildNumber || '1.0.0',
+        brand: brand || '',
+        country:country || '',
+        levelType: level || 'info',
+        message: message || '',
+        event: JSON.parse(JSON.stringify(...event))
     };
   
     return payload;
