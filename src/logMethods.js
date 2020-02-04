@@ -1,5 +1,4 @@
-import splunkLogger from '../index';
-import setLogFormatter from '../index'
+import {splunkLogger, setLogFormatter} from '../index';
 
 export class Logger {
     static info(method, ...props) {
