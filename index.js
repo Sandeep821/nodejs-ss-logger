@@ -2,6 +2,8 @@ import bunyan  from "bunyan";
 import splunkBunyan from "splunk-bunyan-logger";
 import uuidv1 from "uuid/v1";
 import moment from "moment";
+import os from "os";
+import getClientInfo from "./src/getClientInfo";
 
  
 const config = {
@@ -22,9 +24,15 @@ const setConfig = (token, url, port, maxRetries) => {
 
 const splunkStream = splunkBunyan.createStream(config);
 
-function setLogFormatter(methodName, appName, environment, buildNumber, brand, country, level, language, message, event) {
+function setLogFormatter(appName, methodName, environment, buildNumber, brand, country, level, language, message, event) {
+    const clientInfo = getClientInfo();
     const payload = {
         application: appName,
+        host: os.hostname() || '', 
+        browser: clientInfo.browser,
+        device: clientInfo.device,
+        version: clientInfo.version || '',
+        engine: clientInfo.name || '',
         date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         language: language || moment.locale(),
         method: methodName || '',
