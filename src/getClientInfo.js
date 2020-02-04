@@ -1,5 +1,6 @@
 import http from "http";
 import parser from "ua-parser-js";
+import get from "lodash/get";
 
  
 export default getClientInfo = _ => {
@@ -10,11 +11,11 @@ export default getClientInfo = _ => {
         res.end(JSON.stringify(ua, null, '  '));
     
         return {
-            browser : ua.browser || '',
-            device: ua.browser || '',
-            os: ua.browser || '',
-            version: ua.os.version || '',
-            engine: ua.engine.name || ''
+            browser : get(ua, 'browser') || '',
+            device: get(ua, 'device') || '',
+            os: get(ua, 'os') || '',
+            version: get(ua, 'os.version') || '',
+            engine: get(ua, 'engine.name') || ''
         }
     }).listen(1337, '127.0.0.1');
 }
