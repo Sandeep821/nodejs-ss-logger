@@ -1,0 +1,21 @@
+# package directories
+node_modules
+jspm_packages
+.vscode
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
+
+# Docs
+docs
+
+#code-analysis
+coverage
+reports
+junit.xml
+
+#dotenv
+.env

@@ -1,0 +1,28 @@
+{
+    "name": "nodejs-ss-logger",
+    "version": "1.0.0",
+    "description": "node js application logger",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Sandeep821/nodejs-ss-logger.git"
+    },
+    "keywords": [
+      "logger",
+      "splunk wrapper"
+    ],
+    "author": "Sandeep Soni",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/Sandeep821/nodejs-ss-logger/issues"
+    },
+    "homepage": "https://github.com/Sandeep821/nodejs-ss-logger#readme",
+    "dependencies": {
+      "bunyan": "^1.8.12",
+      "splunk-bunyan-logger": "^0.10.1"
+    }
+  }
+  
