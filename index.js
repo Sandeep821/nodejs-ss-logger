@@ -4,6 +4,7 @@ import uuidv1 from "uuid/v1";
 import moment from "moment";
 import os from "os";
 import getClientInfo from "./src/getClientInfo";
+import {getMethodCount} from "./src/gettMethodCount"
 
  
 const config = {
@@ -24,10 +25,19 @@ const setConfig = (token, url, port, maxRetries) => {
 
 const splunkStream = splunkBunyan.createStream(config);
 
+/* 
+setLogFormatter get common and specific log information 
+rom client, moulde, events and logs it in a developer-friendly formats
+in clear key-value pairs and using category INFO, WARN, ERROR, and DEBUG.
+
+logging comman value like unique identifiers, 
+timestamps browser and device related information, locale.
+*/
 function setLogFormatter(appName, methodName, environment, buildNumber, brand, country, level, language, message, event) {
     const clientInfo = getClientInfo();
     const payload = {
         application: appName,
+        appId: `${appName}-${uuidv1()}`,
         host: os.hostname() || '', 
         browser: clientInfo.browser,
         device: clientInfo.device,
@@ -36,7 +46,7 @@ function setLogFormatter(appName, methodName, environment, buildNumber, brand, c
         date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         language: language || moment.locale(),
         method: methodName || '',
-        appId: `${appName}-${uuidv1()}`,
+        methodCount: getMethodCount(methodName) || 0,
         environment: environment || '',
         build: buildNumber || '1.0.0',
         brand: brand || '',
