@@ -26,12 +26,14 @@ const setConfig = (token, url, port, maxRetries) => {
 const splunkStream = splunkBunyan.createStream(config);
 
 /* 
-setLogFormatter get common and specific log information 
+setLogFormatter gets common and specific log information 
 rom client, moulde, events and logs it in a developer-friendly formats
-in clear key-value pairs and using category INFO, WARN, ERROR, and DEBUG.
+in clear key-value pairs, using category INFO, WARN, ERROR, and DEBUG.
 
 logging comman value like unique identifiers, 
 timestamps browser and device related information, locale.
+
+following Logging best practices -  ref https://dev.splunk.com/enterprise/docs/developapps/logging/loggingbestpractices/
 */
 function setLogFormatter(appName, methodName, environment, buildNumber, brand, country, level, language, message, event) {
     const clientInfo = getClientInfo();

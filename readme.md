@@ -1,6 +1,13 @@
 # Splunk Log wrapper app
 
-- Splunk Log wrapper application 
+- Splunk Log wrapper application gets common and specific log information 
+rom client, moulde, events and logs it in a developer-friendly formats
+in clear key-value pairs, using category INFO, WARN, ERROR, and DEBUG.
+
+logging comman value like unique identifiers, 
+timestamps browser and device related information, locale.
+
+following Logging best practices -  ref https://dev.splunk.com/enterprise/docs/developapps/logging/loggingbestpractices/
 
 ## Prerequisites
 
