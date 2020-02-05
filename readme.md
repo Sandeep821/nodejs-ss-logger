@@ -18,7 +18,7 @@
 ## Deployment
 
 ## Commands
-
+- to test run `npm test`
 - run serverless function locally : serverless invoke local --function functionName run serverless
 - locally : serverless offline or sls offline
 
