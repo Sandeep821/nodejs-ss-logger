@@ -1,0 +1,38 @@
+{
+    "globals": {
+        "ts-jest": {
+            "diagnostics": false
+        }
+    },
+    "roots": [
+        "<rootDir>/tests"
+    ],
+ 
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.js?$",
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "**/*.{js,jsx}",
+        "!**/index.{js}",
+        "!**/node_modules/**",
+        "!**/dist/**",
+        "!**/coverage/**",
+        "!**/tests/**",
+        "!**/webpack*",
+        "!**/_*.{ts,tsx}"
+    ],
+    "reporters": [
+       
+    ],
+    "coverageReporters": [
+      
+    ]
+}

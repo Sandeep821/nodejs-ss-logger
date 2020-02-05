@@ -1,0 +1,35 @@
+{
+    "globals": {
+        "ts-jest": {
+            "diagnostics": false
+        }
+    },
+    "roots": [
+        "<rootDir>/tests"
+    ],
+   
+    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "**/*.{ts,tsx}",
+        "!**/index.{ts}",
+        "!**/node_modules/**",
+        "!**/dist/**",
+        "!**/coverage/**",
+        "!**/tests/**",
+        "!**/webpack*",
+        "!**/_*.{ts,tsx}"
+    ],
+    "transformIgnorePatterns": [
+        "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+      ]
+}
