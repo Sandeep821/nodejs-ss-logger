@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Sandeep821/nodejs-ss-logger#readme",
   "dependencies": {
     "bunyan": "^1.8.12",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "splunk-bunyan-logger": "^0.10.1",
