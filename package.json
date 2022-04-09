@@ -23,7 +23,7 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.27",
     "splunk-bunyan-logger": "^0.10.1",
     "ua-parser-js": "^0.7.21",
